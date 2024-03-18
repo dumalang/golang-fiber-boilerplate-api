@@ -11,5 +11,5 @@ func Routes(route fiber.Router) {
 }
 
 func handler(c *fiber.Ctx) error {
-	return c.SendString("example-service.api.v1")
+	return c.JSON(c.Route())
 }
