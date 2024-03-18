@@ -1,18 +1,16 @@
 package api_v1_example_router
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	"golang-fiber-boilerplate-api/src/services/example_service/app/http/example_service_controllers"
+)
 
 func Routes(route fiber.Router) {
 	//group := route.Group("/v1")
 
-	route.Get("/", example)
-	route.Get("/:id", example)
-	route.Post("/", example)
-	route.Put("/:id", example)
-	route.Delete("/:id", example)
-}
-
-func example(c *fiber.Ctx) error {
-	// Handle logic to get all users
-	return c.SendString("api/v1/examples")
+	route.Get("/", example_service_controllers.Example)
+	route.Get("/:id", example_service_controllers.Example)
+	route.Post("/", example_service_controllers.Example)
+	route.Put("/:id", example_service_controllers.Example)
+	route.Delete("/:id", example_service_controllers.Example)
 }
